@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Guardiões do Meio Ambiente</title>
+    <link rel="stylesheet" href="style2-1.css">
+</head>
+<body>
+
+<div id="telaInicial">
+    <img id="logoAnimado" width="180" src="https://cdn-icons-png.flaticon.com/512/2906/2906876.png">
+    <h1 class="tituloAnimado">Guardiões do Meio Ambiente</h1>
+    <button id="btnIniciar">Entrar</button>
+</div>
+
+<div id="app" class="oculto">
+    <header><h1>🌱 Guardiões do Meio Ambiente</h1></header>
+
+    <nav>
+        <button onclick="showSection('desafios')">
+            <img src="https://cdn-icons-png.flaticon.com/512/991/991952.png">Desafios
+        </button>
+        <button onclick="showSection('quiz')">
+            <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png">Quiz
+        </button>
+        <button onclick="showSection('dicas')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">Dicas
+        </button>
+        <button onclick="showSection('ranking')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png">Ranking
+        </button>
+    </nav>
+
+    <section id="desafios" class="active">
+        <h2>Desafios do Dia</h2>
+        <div id="listaDesafios"></div>
+    </section>
+
+    <section id="quiz">
+        <h2>Mini-Quiz Ambiental</h2>
+        <div id="quizBox"></div>
+    </section>
+
+    <section id="dicas">
+        <h2>Dica Verde do Dia</h2>
+        <p id="dicaTexto"></p>
+        <button onclick="novaDica()">Nova dica</button>
+    </section>
+
+    <section id="ranking">
+        <h2>Ranking dos Guardiões</h2>
+        <div id="listaRanking"></div><br>
+        <input id="nomeJogador" type="text" placeholder="Seu nome">
+        <button onclick="salvarScore()">Registrar Pontos</button>
+    </section>
+</div>
+
+
+<script src="script2-1.js"></script>
+
+
+</body>
+</html>

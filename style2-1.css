@@ -1,0 +1,100 @@
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eafbf0;
+            color: #1b4332;
+        }
+        #telaInicial {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(#95d5b2, #52b788);
+            animation: fadeIn 1.2s;
+        }
+        #logoAnimado {
+            width: 180px;
+            animation: pulse 2s infinite;
+        }
+        .tituloAnimado {
+            font-size: 30px;
+            margin-top: 20px;
+            animation: slideDown 1.5s;
+        }
+        #btnIniciar {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background: #1b4332;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .oculto { display: none; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.07); }
+            100% { transform: scale(1); }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background: #2d6a4f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background: #40916c;
+            padding: 10px;
+        }
+        nav button {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 90px;
+        }
+        nav img { width: 30px; margin: auto; }
+        section { display: none; padding: 20px; }
+        section.active { display: block; }
+        .card {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px #0002;
+        }
+        .card button {
+            margin-top: 10px;
+            background: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        #listaRanking {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #listaRanking p {
+            padding: 6px;
+            border-bottom: 1px solid #ddd;
+        }
+ 
