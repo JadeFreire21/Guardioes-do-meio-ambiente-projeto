@@ -1,63 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Guardiões do Meio Ambiente</title>
-    <link rel="stylesheet" href="style2-1.css">
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <div class="app">
 
-<div id="telaInicial">
-    <img id="logoAnimado" width="180" src="https://cdn-icons-png.flaticon.com/512/2906/2906876.png">
-    <h1 class="tituloAnimado">Guardiões do Meio Ambiente</h1>
-    <button id="btnIniciar">Entrar</button>
-</div>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="https://cdn-icons-png.flaticon.com/512/2906/2906876.png" alt="logo" />
+                <h1>Guardiões</h1>
+            </div>
 
-<div id="app" class="oculto">
-    <header><h1>🌱 Guardiões do Meio Ambiente</h1></header>
+            <div class="searchBlock">
+                <label for="buscador" class="label">🔎 Buscar</label>
+                <input id="buscador" type="search" placeholder="Pesquisar posts ou dicas..." />
+            </div>
 
-    <nav>
-        <button onclick="showSection('desafios')">
-            <img src="https://cdn-icons-png.flaticon.com/512/991/991952.png">Desafios
-        </button>
-        <button onclick="showSection('quiz')">
-            <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png">Quiz
-        </button>
-        <button onclick="showSection('dicas')">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">Dicas
-        </button>
-        <button onclick="showSection('ranking')">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png">Ranking
-        </button>
-    </nav>
+            <div class="stats">
+                <div class="stat">
+                    <span class="material-symbols-outlined">visibility</span>
+                    <div>
+                        <small>Visualizações</small>
+                        <strong id="contadorGlobal">0</strong>
+                    </div>
+                </div>
 
-    <section id="desafios" class="active">
-        <h2>Desafios do Dia</h2>
-        <div id="listaDesafios"></div>
-    </section>
+                <div class="stat">
+                    <span class="material-symbols-outlined">eco</span>
+                    <div>
+                        <small>Dicas</small>
+                        <strong id="totalDicas">0</strong>
+                    </div>
+                </div>
+            </div>
 
-    <section id="quiz">
-        <h2>Mini-Quiz Ambiental</h2>
-        <div id="quizBox"></div>
-    </section>
+            <div class="actions">
+                <button id="temaToggle" class="btn">
+                    <span class="material-symbols-outlined" id="iconTema">dark_mode</span>
+                    Modo
+                </button>
+                <button id="novaDicaBtn" class="btn">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    Nova dica
+                </button>
+            </div>
 
-    <section id="dicas">
-        <h2>Dica Verde do Dia</h2>
-        <p id="dicaTexto"></p>
-        <button onclick="novaDica()">Nova dica</button>
-    </section>
+            <footer class="sidebarFooter">
+                <small>© Guardiões • Projeto educativo</small>
+            </footer>
+        </aside>
 
-    <section id="ranking">
-        <h2>Ranking dos Guardiões</h2>
-        <div id="listaRanking"></div><br>
-        <input id="nomeJogador" type="text" placeholder="Seu nome">
-        <button onclick="salvarScore()">Registrar Pontos</button>
-    </section>
-</div>
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main">
+            <header class="mainHeader">
+                <div>
+                    <h2>🌱 Guardiões do Meio Ambiente</h2>
+                    <p class="subtitle">Dicas, posts e vídeos para um mundo mais verde</p>
+                </div>
+                <div class="headerRight">
+                    <button id="btnVerDicas" class="chip">Dicas</button>
+                    <button id="btnVerPosts" class="chip filled">Posts</button>
+                </div>
+            </header>
 
+            <section class="contentArea">
 
-<script src="script2-1.js"></script>
+                <!-- DICAS -->
+                <section id="areaDicas" class="panel active">
+                    <h3>Dica Verde do Dia</h3>
+                    <div id="dicaCard" class="dicaCard" role="article" tabindex="0">
+                        <p id="dicaTexto"></p>
+                        <div class="dicaActions">
+                            <button id="btnOutraDica" class="smallBtn">
+                                <span class="material-symbols-outlined">autorenew</span> Outra dica
+                            </button>
+                        </div>
+                    </div>
+                </section>
 
+                <!-- POSTS / BLOG -->
+                <section id="areaPosts" class="panel">
+                    <h3>Posts Recentes</h3>
+                    <div id="postsGrid" class="grid"></div>
+                </section>
 
+                <!-- VÍDEO -->
+                <section id="areaVideo" class="panel">
+                    <h3>Vídeo recomendado</h3>
+
+                    <div class="videoWrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/7CM60ViHrWw"
+                            title="Economiza energia"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </section>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL DE POST -->
+    <div id="modal" class="modal" aria-hidden="true">
+        <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button id="modalClose" class="modalClose" aria-label="Fechar">×</button>
+            <h2 id="modalTitle"></h2>
+            <p class="meta"><span id="modalViews"></span> • <span id="modalDate"></span></p>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
